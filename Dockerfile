@@ -1,11 +1,15 @@
 FROM python:3.11-slim
 
-# Install Node.js (required to solve YouTube security challenges) and FFmpeg
+# Install dependencies, FFmpeg, and curl to install Deno
 RUN apt-get update && apt-get install -y \
-    nodejs \
-    npm \
     ffmpeg \
+    curl \
+    unzip \
     && rm -rf /var/lib/apt/lists/*
+
+# Install Deno (the primary JS engine for yt-dlp challenges)
+RUN curl -fsSL https://deno.land/install.sh | sh
+ENV PATH="/root/.deno/bin:$PATH"
 
 WORKDIR /app
 
