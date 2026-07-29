@@ -15,7 +15,8 @@ def extract_audio():
         'format': 'bestaudio/best',
         'quiet': True,
         'no_warnings': True,
-        'cookiefile': 'cookies.txt', # Looks for your uploaded cookies.txt file
+        'cookiefile': 'cookies.txt',
+        'js_runtimes': {'deno': {}},
     }
 
     try:
