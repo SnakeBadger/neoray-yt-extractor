@@ -11,10 +11,12 @@ def extract_audio():
 
     url = f"https://www.youtube.com/watch?v={video_id}"
     
+    # Pass the cookies file to bypass bot detection
     ydl_opts = {
         'format': 'bestaudio/best',
         'quiet': True,
         'no_warnings': True,
+        'cookiefile': 'cookies.txt',  # Reads the uploaded cookies file
     }
 
     try:
