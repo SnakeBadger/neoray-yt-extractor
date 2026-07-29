@@ -11,8 +11,9 @@ def extract_audio():
 
     url = f"https://www.youtube.com/watch?v={video_id}"
     
+    # Exclude m3u8/HLS protocols and force direct HTTP audio streams
     ydl_opts = {
-        'format': 'bestaudio/best',
+        'format': 'bestaudio[protocol!*=m3u8]/bestaudio/best',
         'quiet': True,
         'no_warnings': True,
         'cookiefile': 'cookies.txt',
